@@ -20,8 +20,13 @@ def books_in_library(library_name):
 
 # Retrieve the librarian for a library
 def librarian_for_library(librarian_name):
-    librarian = Librarian.objects.get(name=librarian_name)
-    return library.librarian
+    try:
+        library = Library.objects.get(name=library_name)
+        return library.librarian # Access the OneToOneField relationship
+    except Library.DoesNotExist:
+        return f"Library '{library_name}' not found."
+    except Librarian.DoesNotExist:
+        return f"No librarian assigned to '{library_name}'."
 
 # Test queries
 if __name__ == "__main__":
