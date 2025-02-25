@@ -1,9 +1,8 @@
-from django.views.generic import DetailView
 from django.shortcuts import render
 from .models import Book
 
 # Create your views here.
-
+from django.views.generic import DetailView
 
 def list_books(request):
     """Function-based view to list all books."""
