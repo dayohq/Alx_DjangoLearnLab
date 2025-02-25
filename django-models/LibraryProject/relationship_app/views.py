@@ -20,7 +20,7 @@ class LibraryDetailView(DetailView):
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import UserCreationForm
 
 # User Login View
 def user_login(request):
@@ -52,4 +52,3 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, "authentication/register.html", {"form": form})
-    
