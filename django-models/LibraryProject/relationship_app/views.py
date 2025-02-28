@@ -50,7 +50,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('/') 
+            return redirect('register/') 
     else:
         form = UserCreationForm()
     return render(request, "authentication/register.html", {"form": form})
