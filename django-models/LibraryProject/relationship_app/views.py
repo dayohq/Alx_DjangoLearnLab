@@ -39,7 +39,7 @@ def user_login(request):
 def user_logout(request):
     """Logs out the user and redirects to the login page."""
     logout(request)
-    return redirect('login/')  # Use named 'login' URL
+    return redirect('/login')  # Use named 'login' URL
 
 
 # User Registration View
