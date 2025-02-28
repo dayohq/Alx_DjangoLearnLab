@@ -29,7 +29,7 @@ def user_login(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect(reverse_lazy('home'))  # Use named URL instead of hardcoded '/'
+            return redirect('/')  
     else:
         form = AuthenticationForm()
     return render(request, "authentication/login.html", {"form": form})
@@ -39,7 +39,7 @@ def user_login(request):
 def user_logout(request):
     """Logs out the user and redirects to the login page."""
     logout(request)
-    return redirect(reverse_lazy('login'))  # Use named 'login' URL
+    return redirect('login/')  # Use named 'login' URL
 
 
 # User Registration View
@@ -50,7 +50,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect(reverse_lazy('home'))  # Use named URL instead of '/'
+            return redirect('/') 
     else:
         form = UserCreationForm()
     return render(request, "authentication/register.html", {"form": form})
