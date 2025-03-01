@@ -32,7 +32,7 @@ def user_login(request):
             return redirect('/')  
     else:
         form = AuthenticationForm()
-    return render(request, "authentication/login.html", {"form": form})
+    return render(request, "relationship_app/login.html", {"form": form})
 
 
 # User Logout View
@@ -53,4 +53,4 @@ def register(request):
             return redirect('register/') 
     else:
         form = UserCreationForm()
-    return render(request, "authentication/register.html", {"form": form})
+    return render(request, "relationship_app/register.html", {"form": form})
