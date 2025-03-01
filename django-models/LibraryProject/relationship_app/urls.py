@@ -13,12 +13,13 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='authentication/logout.htmll'), name='logout'), # Django's built-in Logout view
     path('register/', views.register, name='register'),
 
-    #User Profile
+    # User Profile
     path('admin-view/', admin_view, name='admin_view'),
     path('librarian-view/', librarian_view, name='librarian_view'),
     path('member-view/', member_view, name='member_view'),
-
-    path("add-book/", add_book, name="add_book"),
-    path("edit-book/<int:book_id>/", edit_book, name="edit_book"),
-    path("delete-book/<int:book_id>/", delete_book, name="delete_book"),    
+    
+    # Custom Permissions
+    path("add_book/", add_book, name="add_book"),
+    path("edit_book/<int:book_id>/", edit_book, name="edit_book"),
+    path("delete_book/<int:book_id>/", delete_book, name="delete_book"),    
 ]
