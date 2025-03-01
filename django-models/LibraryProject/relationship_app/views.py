@@ -5,7 +5,8 @@ from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from .models import Book, Library
 from django.shortcuts import render
-from django.contrib.auth.decorators import user_passes_test, permission_required
+from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import permission_required
 from .forms import BookForm
 
 
