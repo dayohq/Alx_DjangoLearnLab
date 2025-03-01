@@ -71,14 +71,14 @@ def is_member(user):
 # View for Admins only
 @user_passes_test(is_admin)
 def admin_view(request):
-    return render(request, 'roles/admin_view.html')
+    return render(request, 'relationship_app/admin_view.html')
 
 # View for Librarians only
 @user_passes_test(is_librarian)
 def librarian_view(request):
-    return render(request, 'roles/librarian_view.html')
+    return render(request, 'relationship_app/librarian_view.html')
 
 # View for Members only
 @user_passes_test(is_member)
 def member_view(request):
-    return render(request, 'roles/member_view.html')
+    return render(request, 'relationship_app/member_view.html')
