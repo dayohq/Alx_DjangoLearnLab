@@ -10,9 +10,9 @@ class BookAdmin(admin.ModelAdmin):
     search_fields = ('title', 'author')  # Enable search by title and author
     list_filter = ('publication_year',)  # Add filter by publication year
 
-@admin.register(CustomUser)
 class CustomUserAdmin(admin.ModelAdmin):
     list_display =('username', 'email', 'date_of_birth', 'profile_photo')
-
+    
+admin.site.register(CustomUser, CustomeUserAdmin)
 
     
