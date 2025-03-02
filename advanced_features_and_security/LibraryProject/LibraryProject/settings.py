@@ -128,3 +128,4 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 
 AUTH_USER_MODEL = "relationship_app.CustomUser"
+

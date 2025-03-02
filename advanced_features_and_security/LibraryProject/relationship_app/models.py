@@ -97,7 +97,6 @@ class CustomUserManager(BaseUserManager):
 # Custom User Model
 class CustomUser(AbstractUser):
     """Custom user model replacing Django's default User model."""
-    pass
     email = models.EmailField(unique=True)  # Unique Email instead of username-based login
     date_of_birth = models.DateField(null=True, blank=True)
     profile_photo = models.ImageField(upload_to="profile_photos/", null=True, blank=True)
