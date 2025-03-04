@@ -11,3 +11,7 @@ class BookForm(forms.ModelForm):
         if "<script>" in title or "DROP TABLE" in title.upper():
             raise forms.ValidationError("Invalid input detected!")
         return title
+
+class ExampleForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()

@@ -4,6 +4,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Book
 from django.http import HttpResponseForbidden
 from .forms import BookForm
+from .forms import ExampleForm
+
 
 # Create your views here.
 @permission_required('bookshelf.can_view_book', raise_exception=True)
