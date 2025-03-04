@@ -166,3 +166,5 @@ CSP_IMG_SRC = ("'self'", "data:")
 
 # Redirect all HTTP requests to HTTPS
 SECURE_SSL_REDIRECT = True  
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
