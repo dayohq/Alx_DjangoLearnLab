@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.models import Group, Permission
 
 
 # Create your models here.
@@ -8,6 +9,15 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
     publication_year = models.IntegerField()
+
+# Created permissions. Date: 3rd March
+    class Meta:
+        permissions = [
+            ("can_view", "Can view book"),
+            ("can_create", "Can create book"),
+            ("can_edit", "Can edit book"),
+            ("can_delete_book", "Can delete book"),
+        ]
 
     def __str__(self):
         return f"{self.title} by {self.author} ({self.publication_year})"
@@ -43,3 +53,9 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.role}"
+    
+# Date: 3rd March
+class UserGroup(Group):
+    ...
+    def __str__(self):
+        return self.name
