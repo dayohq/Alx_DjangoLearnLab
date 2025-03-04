@@ -8,6 +8,8 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.decorators import permission_required
 from .forms import BookForm
+from django.http import HttpResponseForbidden
+
 
 
 # Function-based View (FBV) to List Books
