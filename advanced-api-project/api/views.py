@@ -1,12 +1,16 @@
 from django.shortcuts import render
-from rest_framework import generics
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
-from django_filters import rest_framework as filters 
-from rest_framework.filters import SearchFilter 
-from rest_framework.filters import OrderingFilter
-from django_filters.rest_framework import DjangoFilterBackend
+
 from .serializers import BookSerializer
 from .models import Book
+
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
+
+
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
+
+
 
 # Create your views here.
 class BookListView(generics.ListAPIView):
@@ -20,7 +24,7 @@ class BookListView(generics.ListAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
 
     # Enable Filtering, Searching, and Ordering
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
 
     # Define which fields can be filtered
     filterset_fields = ['title', 'author__name', 'publication_year']
