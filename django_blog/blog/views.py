@@ -33,7 +33,7 @@ def user_login(request):
 # User Logout
 def user_logout(request):
     logout(request)
-    return redirect('login')
+    return render(request, 'blog/logout.html')
 
 # Profile View
 @login_required
