@@ -65,3 +65,19 @@ Authenticated users can create posts.
 Post authors can edit or delete their own posts.
 
 All users (even unauthenticated) can view posts.
+
+
+# Django Blog - Tagging and Search
+
+## Features
+- Users can tag their posts using `django-taggit`.
+- Posts can be filtered by tags.
+- A search bar allows users to find posts by title, content, or tags.
+
+## Usage
+- **Tagging:** When creating a post, add comma-separated tags.
+- **Search:** Enter keywords in the search bar to find relevant posts.
+
+## URL Patterns
+- `/search/` - Search blog posts.
+- `/tags/<tag_name>/` - View posts by tag.

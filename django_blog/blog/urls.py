@@ -1,7 +1,9 @@
 from django.urls import path
 from .views import register, user_login, user_logout, profile
 from django.contrib.auth import views as auth_views
-from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, search_posts
+from taggit.views import tagged_object_list
+from .models import Post
 
 urlpatterns = [
     # Authentication urls
@@ -21,4 +23,8 @@ urlpatterns = [
     path("post/<int:pk>/comments/new/", CommentCreateView.as_view(), name="comment-create"),
     path("comment/<int:pk>/update/", CommentUpdateView.as_view(), name="comment-update"),
     path("comment/<int:pk>/delete/", CommentDeleteView.as_view(), name="comment-delete"),
+
+    # Searcg view urls
+    path('search/', search_posts, name='search_posts'),
+    path('tags/<slug:tag_slug>/', tagged_object_list, {'queryset': Post.objects.all(), 'template_name': 'blog/tagged_posts.html'}, name='posts_by_tag'),
 ]
